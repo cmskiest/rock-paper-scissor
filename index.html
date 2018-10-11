@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <script>
-    function playround(playerSelection, computerSelection) {
-    
 
-        
+let playerSelection = prompt("Rock, Paper, or Scissors?");
+
+  function playround(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) { alert("Tie!"); }
     
     else if ((playerSelection === "rock" && computerSelection === "scissors")
           || (playerSelection === "scissors" && computerSelection === "paper")
           || (playerSelection === "paper" && computerSelection === "rock")) {
-          alert("You Win!");
+          alert("You Win! " + playerSelection + " beats " + computerSelection + "!");
           }       
     else if ((playerSelection === "scissors" && computerSelection === "rock")
           || (playerSelection === "paper" && computerSelection === "scissors")
           || (playerSelection === "rock" && computerSelection === "paper")) {
-          alert("You Lose!");
+          alert("You Lose! " + computerSelection + " beats " + playerSelection + "!");
           }
-    }    
+  }    
 
 
 </script>
