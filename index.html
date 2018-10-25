@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
 <script>
-
-let input = prompt("Rock, Paper, or Scissors?");
-let playerSelection = input.toLowerCase() 
-  
-  if (playerSelection === ("rock" || "scissors" || "paper"))
-    { console.log(playerSelection) }
-  else 
-  { alert("Please Enter Rock, Paper, or Scissors!"); }
+ let choices = ["rock", "paper", "scissors"];
+ let input = prompt("Rock, Paper, or Scissors?");
+ let playerSelection = input.toLowerCase();
+ let computerSelection = computerPlay()
 
 
+function playerinput() {
+  let input = prompt("Rock, Paper, or Scissors?");
+}
+  if ((playerSelection === "rock") || (playerSelection === "scissors") || (playerSelection === "paper")) {
+    console.log(playerSelection)
+    } 
+    else { alert("Please Enter Rock, Paper, or Scissors!")
+      let input = prompt("Rock", "Paper", "Scissors");
+    }
 
-  function playround(playerSelection, computerSelection) {
+function computerPlay() { 
+  return choices[Math.floor(Math.random()*choices.length)];
+}
+
+
+ function playround(playerSelection, computerSelection) {
 
     if (playerSelection == computerSelection) { alert("Tie!"); }
     
