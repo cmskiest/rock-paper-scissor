@@ -2,39 +2,49 @@
 <html>
 <script>
  let choices = ["rock", "paper", "scissors"];
- let input = prompt("Rock, Paper, or Scissors?");
- let playerSelection = input.toLowerCase();
- let computerSelection = computerPlay()
+ let playwin = 0;
+ let comwin = 0;
 
-
-function playerinput() {
+//Game
+function game() {
   let input = prompt("Rock, Paper, or Scissors?");
-}
+  let playerSelection = input.toLowerCase();
+  let computerSelection = computerPlay()
   if ((playerSelection === "rock") || (playerSelection === "scissors") || (playerSelection === "paper")) {
-    console.log(playerSelection)
+    playround(playerSelection, computerSelection);
     } 
-    else { alert("Please Enter Rock, Paper, or Scissors!")
-      let input = prompt("Rock", "Paper", "Scissors");
+    else { alert("Please Enter Rock, Paper, or Scissors!");
     }
-
-function computerPlay() { 
-  return choices[Math.floor(Math.random()*choices.length)];
+  if (comwin == 3) {
+    alert("YOU LOSE THE WHOLE THING!");
+  }
+  else if (playwin == 3) {
+    alert("YOU WIN THE WHOLE THING!");
+  }
+  else {
+    game()
+  }
 }
+//Computer Randomizer
+function computerPlay() { 
+  return choices[Math.floor(Math.random()*choices.length)]; 
+}
+//Game Rules
+function playround(playerSelection, computerSelection) {
 
-
- function playround(playerSelection, computerSelection) {
-
-    if (playerSelection == computerSelection) { alert("Tie!"); }
+    if (playerSelection === computerSelection) { alert ("Tie!"); }
     
     else if ((playerSelection === "rock" && computerSelection === "scissors")
           || (playerSelection === "scissors" && computerSelection === "paper")
           || (playerSelection === "paper" && computerSelection === "rock")) {
-          alert("You Win! " + playerSelection + " beats " + computerSelection + "!");
+          playwin++;
+          alert ("You Win! " + playerSelection + " beats " + computerSelection + "!");
           }       
     else if ((playerSelection === "scissors" && computerSelection === "rock")
           || (playerSelection === "paper" && computerSelection === "scissors")
           || (playerSelection === "rock" && computerSelection === "paper")) {
-          alert("You Lose! " + computerSelection + " beats " + playerSelection + "!");
+          comwin++;
+          alert ("You Lose! " + computerSelection + " beats " + playerSelection + "!");
           }
   }    
 
